@@ -7485,52 +7485,46 @@ function NightUILibrary:CreateWindow(Settings)
 			return DividerValue
 		end
 
-		-- Label (safe version with fallback)
+		-- Label
 		function Tab:CreateLabel(LabelText : string, Icon: number, Color : Color3, IgnoreTheme : boolean)
 			local LabelValue = {}
-			local Label
 			
-			-- Try to use template, fallback to manual creation
-			if Elements.Template and Elements.Template:FindFirstChild("Label") then
-				Label = Elements.Template.Label:Clone()
-			else
-				-- Manual creation fallback
-				Label = Instance.new("Frame")
-				Label.Name = "Label"
-				Label.Size = UDim2.new(1, -20, 0, 30)
-				Label.BackgroundColor3 = SelectedTheme.SecondaryElementBackground or Color3.fromRGB(35, 35, 35)
-				Label.BorderSizePixel = 0
-				
-				local corner = Instance.new("UICorner")
-				corner.CornerRadius = UDim.new(0, 6)
-				corner.Parent = Label
-				
-				local stroke = Instance.new("UIStroke")
-				stroke.Color = SelectedTheme.SecondaryElementStroke or Color3.fromRGB(50, 50, 50)
-				stroke.Thickness = 1
-				stroke.Parent = Label
-				
-				local title = Instance.new("TextLabel")
-				title.Name = "Title"
-				title.Size = UDim2.new(1, -20, 1, 0)
-				title.Position = UDim2.new(0, 10, 0, 0)
-				title.BackgroundTransparency = 1
-				title.Text = LabelText or ""
-				title.TextColor3 = SelectedTheme.TextColor or Color3.fromRGB(240, 240, 240)
-				title.TextSize = 12
-				title.Font = Enum.Font.Gotham
-				title.TextXAlignment = Enum.TextXAlignment.Left
-				title.Parent = Label
-				
-				local icon = Instance.new("ImageLabel")
-				icon.Name = "Icon"
-				icon.Size = UDim2.new(0, 20, 0, 20)
-				icon.Position = UDim2.new(0, 10, 0.5, 0)
-				icon.AnchorPoint = Vector2.new(0, 0.5)
-				icon.BackgroundTransparency = 1
-				icon.Visible = false
-				icon.Parent = Label
-			end
+			local Label = Instance.new("Frame")
+			Label.Name = "Label"
+			Label.Size = UDim2.new(1, -20, 0, 30)
+			Label.BackgroundColor3 = SelectedTheme.SecondaryElementBackground or Color3.fromRGB(35, 35, 35)
+			Label.BorderSizePixel = 0
+			
+			local corner = Instance.new("UICorner")
+			corner.CornerRadius = UDim.new(0, 6)
+			corner.Parent = Label
+			
+			local stroke = Instance.new("UIStroke")
+			stroke.Color = SelectedTheme.SecondaryElementStroke or Color3.fromRGB(50, 50, 50)
+			stroke.Thickness = 1
+			stroke.Parent = Label
+			
+			local title = Instance.new("TextLabel")
+			title.Name = "Title"
+			title.Size = UDim2.new(1, -20, 1, 0)
+			title.Position = UDim2.new(0, 10, 0, 0)
+			title.BackgroundTransparency = 1
+			title.Text = LabelText or ""
+			title.TextColor3 = SelectedTheme.TextColor or Color3.fromRGB(240, 240, 240)
+			title.TextSize = 12
+			title.Font = Enum.Font.Gotham
+			title.TextXAlignment = Enum.TextXAlignment.Left
+			title.Parent = Label
+			
+			local icon = Instance.new("ImageLabel")
+			icon.Name = "Icon"
+			icon.Size = UDim2.new(0, 20, 0, 20)
+			icon.Position = UDim2.new(0, 10, 0.5, 0)
+			icon.AnchorPoint = Vector2.new(0, 0.5)
+			icon.BackgroundTransparency = 1
+			icon.Visible = false
+			icon.Parent = Label
+
 			if Label:FindFirstChild('Title') then
 				Label.Title.Text = LabelText
 			end
