@@ -6935,30 +6935,6 @@ function NightUILibrary:CreateWindow(Settings)
 			
 			return spacer
 		end
-		
-		-- Label/Paragraph
-		function Tab:CreateLabel(text)
-			local label = Instance.new("TextLabel")
-			label.Name = "Label"
-			label.Size = UDim2.new(1, -20, 0, 0)
-			label.Position = UDim2.new(0, 10, 0, 0)
-			label.BackgroundTransparency = 1
-			label.Text = text
-			label.TextColor3 = SelectedTheme.TextColor
-			label.TextSize = 12
-			label.Font = Enum.Font.Gotham
-			label.TextXAlignment = Enum.TextXAlignment.Left
-			label.TextWrapped = true
-			label.AutomaticSize = Enum.AutomaticSize.Y
-			label.Parent = TabPage
-			
-			local LabelObj = {}
-			function LabelObj:Set(newText)
-				label.Text = newText
-			end
-			
-			return LabelObj
-		end
 
 		-- Button
 		function Tab:CreateButton(ButtonSettings)
@@ -7524,7 +7500,6 @@ function NightUILibrary:CreateWindow(Settings)
 				Label.Size = UDim2.new(1, -20, 0, 30)
 				Label.BackgroundColor3 = SelectedTheme.SecondaryElementBackground or Color3.fromRGB(35, 35, 35)
 				Label.BorderSizePixel = 0
-				Label.Parent = TabPage
 				
 				local corner = Instance.new("UICorner")
 				corner.CornerRadius = UDim.new(0, 6)
@@ -7555,12 +7530,6 @@ function NightUILibrary:CreateWindow(Settings)
 				icon.BackgroundTransparency = 1
 				icon.Visible = false
 				icon.Parent = Label
-				
-				function LabelValue:Set(NewLabel)
-					title.Text = NewLabel
-				end
-				
-				return LabelValue
 			end
 			if Label:FindFirstChild('Title') then
 				Label.Title.Text = LabelText
