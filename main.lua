@@ -3988,11 +3988,13 @@ local closeSearch = function() end
 
 local function Hide(notify: boolean?)
 	if MPrompt then
-		MPrompt.Title.TextColor3 = SelectedTheme and SelectedTheme.TextColor or Color3.fromRGB(255, 255, 255)
+		if MPrompt:FindFirstChild("Title") then
+			MPrompt.Title.TextColor3 = SelectedTheme and SelectedTheme.TextColor or Color3.fromRGB(255, 255, 255)
+			MPrompt.Title.TextTransparency = 1
+		end
 		MPrompt.Position = UDim2.new(0.5, 0, 0, -50)
 		MPrompt.Size = UDim2.new(0, 40, 0, 10)
 		MPrompt.BackgroundTransparency = 1
-		MPrompt.Title.TextTransparency = 1
 		MPrompt.Visible = true
 	end
 
@@ -4039,9 +4041,9 @@ local function Hide(notify: boolean?)
 	for _, tabbtn in ipairs(TabList:GetChildren()) do
 		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "Placeholder" then
 			TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-			TweenService:Create(tabbtn.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
-			TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play()
-			TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+			if tabbtn:FindFirstChild("Title") then TweenService:Create(tabbtn.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play() end
+			if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 1}):Play() end
+			if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play() end
 		end
 	end
 
@@ -4053,13 +4055,21 @@ local function Hide(notify: boolean?)
 				if element.ClassName == "Frame" then
 					if element.Name ~= "SectionSpacing" and element.Name ~= "Placeholder" then
 						if element.Name == "SectionTitle" or element.Name == 'SearchTitle-fsefsefesfsefesfesfThanks' then
-							TweenService:Create(element.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
+							if element:FindFirstChild("Title") then
+								TweenService:Create(element.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
+							end
 						elseif element.Name == 'Divider' then
-							TweenService:Create(element.Divider, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
+							if element:FindFirstChild("Divider") then
+								TweenService:Create(element.Divider, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
+							end
 						else
 							TweenService:Create(element, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
-							TweenService:Create(element.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
-							TweenService:Create(element.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
+							if element:FindFirstChild("UIStroke") then
+								TweenService:Create(element.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+							end
+							if element:FindFirstChild("Title") then
+								TweenService:Create(element.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 1}):Play()
+							end
 						end
 						for _, child in ipairs(element:GetChildren()) do
 							if child.ClassName == "Frame" or child.ClassName == "TextLabel" or child.ClassName == "TextBox" or child.ClassName == "ImageButton" or child.ClassName == "ImageLabel" then
@@ -4103,9 +4113,13 @@ local function Maximise()
 						elementIndex = elementIndex + 1
 						task.delay(elementIndex * AnimationLib.Stagger.Fast, function()
 							if element.Name == "SectionTitle" or element.Name == 'SearchTitle-fsefsefesfsefesfesfThanks' then
-								TweenService:Create(element.Title, AnimationLib.Presets.Smooth, {TextTransparency = 0.4}):Play()
+								if element:FindFirstChild("Title") then
+									TweenService:Create(element.Title, AnimationLib.Presets.Smooth, {TextTransparency = 0.4}):Play()
+								end
 							elseif element.Name == 'Divider' then
-								TweenService:Create(element.Divider, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.85}):Play()
+								if element:FindFirstChild("Divider") then
+									TweenService:Create(element.Divider, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.85}):Play()
+								end
 							else
 								TweenService:Create(element, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.3}):Play()
 								if element:FindFirstChild("UIStroke") then
@@ -4135,16 +4149,18 @@ local function Maximise()
 		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "Placeholder" then
 			tabIndex = tabIndex + 1
 			task.delay(tabIndex * AnimationLib.Stagger.Normal, function()
-				if tostring(Elements.UIPageLayout.CurrentPage) == tabbtn.Title.Text then
+				local titleChild = tabbtn:FindFirstChild("Title")
+				local isSelected = titleChild and tostring(Elements.UIPageLayout.CurrentPage) == titleChild.Text
+				if isSelected then
 					TweenService:Create(tabbtn, AnimationLib.Presets.TabSlide, {BackgroundTransparency = 0}):Play()
-					TweenService:Create(tabbtn.Image, AnimationLib.Presets.TabSlide, {ImageTransparency = 0}):Play()
-					TweenService:Create(tabbtn.Title, AnimationLib.Presets.TabSlide, {TextTransparency = 0}):Play()
-					TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.TabSlide, {Transparency = 1}):Play()
+					if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, AnimationLib.Presets.TabSlide, {ImageTransparency = 0}):Play() end
+					if titleChild then TweenService:Create(titleChild, AnimationLib.Presets.TabSlide, {TextTransparency = 0}):Play() end
+					if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.TabSlide, {Transparency = 1}):Play() end
 				else
 					TweenService:Create(tabbtn, AnimationLib.Presets.TabSlide, {BackgroundTransparency = 0.7}):Play()
-					TweenService:Create(tabbtn.Image, AnimationLib.Presets.TabSlide, {ImageTransparency = 0.2}):Play()
-					TweenService:Create(tabbtn.Title, AnimationLib.Presets.TabSlide, {TextTransparency = 0.2}):Play()
-					TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.TabSlide, {Transparency = 0.5}):Play()
+					if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, AnimationLib.Presets.TabSlide, {ImageTransparency = 0.2}):Play() end
+					if titleChild then TweenService:Create(titleChild, AnimationLib.Presets.TabSlide, {TextTransparency = 0.2}):Play() end
+					if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.TabSlide, {Transparency = 0.5}):Play() end
 				end
 			end)
 		end
@@ -4208,16 +4224,18 @@ local function Unhide()
 
 	for _, tabbtn in ipairs(TabList:GetChildren()) do
 		if tabbtn.ClassName == "Frame" and tabbtn.Name ~= "Placeholder" then
-			if tostring(Elements.UIPageLayout.CurrentPage) == tabbtn.Title.Text then
+			local titleChild = tabbtn:FindFirstChild("Title")
+			local isSelected = titleChild and tostring(Elements.UIPageLayout.CurrentPage) == titleChild.Text
+			if isSelected then
 				TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0}):Play()
-				TweenService:Create(tabbtn.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play()
-				TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play()
-				TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play()
+				if titleChild then TweenService:Create(titleChild, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0}):Play() end
+				if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0}):Play() end
+				if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 1}):Play() end
 			else
 				TweenService:Create(tabbtn, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {BackgroundTransparency = 0.7}):Play()
-				TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0.2}):Play()
-				TweenService:Create(tabbtn.Title, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0.2}):Play()
-				TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play()
+				if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0.2}):Play() end
+				if titleChild then TweenService:Create(titleChild, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {TextTransparency = 0.2}):Play() end
+				if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {Transparency = 0.5}):Play() end
 			end
 		end
 	end
@@ -4228,9 +4246,13 @@ local function Unhide()
 				if element.ClassName == "Frame" then
 					if element.Name ~= "SectionSpacing" and element.Name ~= "Placeholder" then
 						if element.Name == "SectionTitle" or element.Name == 'SearchTitle-fsefsefesfsefesfesfThanks' then
-							TweenService:Create(element.Title, AnimationLib.Presets.Smooth, {TextTransparency = 0.4}):Play()
+							if element:FindFirstChild("Title") then
+								TweenService:Create(element.Title, AnimationLib.Presets.Smooth, {TextTransparency = 0.4}):Play()
+							end
 						elseif element.Name == 'Divider' then
-							TweenService:Create(element.Divider, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.85}):Play()
+							if element:FindFirstChild("Divider") then
+								TweenService:Create(element.Divider, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.85}):Play()
+							end
 						else
 							-- 🔥 FIX: Use 0.3 transparency for elements, not 0!
 							TweenService:Create(element, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.3}):Play()
@@ -4272,9 +4294,9 @@ local function Minimise()
 			tabIndex = tabIndex + 1
 			task.delay(tabIndex * 0.02, function()
 				TweenService:Create(tabbtn, AnimationLib.Presets.PanelClose, {BackgroundTransparency = 1}):Play()
-				TweenService:Create(tabbtn.Image, AnimationLib.Presets.PanelClose, {ImageTransparency = 1}):Play()
-				TweenService:Create(tabbtn.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play()
-				TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.PanelClose, {Transparency = 1}):Play()
+				if tabbtn:FindFirstChild("Image") then TweenService:Create(tabbtn.Image, AnimationLib.Presets.PanelClose, {ImageTransparency = 1}):Play() end
+				if tabbtn:FindFirstChild("Title") then TweenService:Create(tabbtn.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play() end
+				if tabbtn:FindFirstChild("UIStroke") then TweenService:Create(tabbtn.UIStroke, AnimationLib.Presets.PanelClose, {Transparency = 1}):Play() end
 			end)
 		end
 	end
@@ -4286,9 +4308,13 @@ local function Minimise()
 				if element.ClassName == "Frame" then
 					if element.Name ~= "SectionSpacing" and element.Name ~= "Placeholder" then
 						if element.Name == "SectionTitle" or element.Name == 'SearchTitle-fsefsefesfsefesfesfThanks' then
-							TweenService:Create(element.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play()
+							if element:FindFirstChild("Title") then
+								TweenService:Create(element.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play()
+							end
 						elseif element.Name == 'Divider' then
-							TweenService:Create(element.Divider, AnimationLib.Presets.PanelClose, {BackgroundTransparency = 1}):Play()
+							if element:FindFirstChild("Divider") then
+								TweenService:Create(element.Divider, AnimationLib.Presets.PanelClose, {BackgroundTransparency = 1}):Play()
+							end
 						else
 							TweenService:Create(element, AnimationLib.Presets.PanelClose, {BackgroundTransparency = 1}):Play()
 							if element:FindFirstChild("UIStroke") then
@@ -5572,12 +5598,18 @@ function NightUILibrary:CreateWindow(Settings)
 		local themeStroke = SelectedTheme.ToggleEnabled or Color3.fromRGB(130, 80, 220)
 		
 		-- Hide original text labels initially
-		LoadingFrame.Title.Text = ""
-		LoadingFrame.Title.TextTransparency = 0
-		LoadingFrame.Subtitle.TextTransparency = 1
-		LoadingFrame.Subtitle.TextColor3 = themeTextColor
-		LoadingFrame.Version.TextTransparency = 1
-		LoadingFrame.Version.TextColor3 = themeAccent
+		if LoadingFrame:FindFirstChild('Title') then
+			LoadingFrame.Title.Text = ""
+			LoadingFrame.Title.TextTransparency = 0
+		end
+		if LoadingFrame:FindFirstChild('Subtitle') then
+			LoadingFrame.Subtitle.TextTransparency = 1
+			LoadingFrame.Subtitle.TextColor3 = themeTextColor
+		end
+		if LoadingFrame:FindFirstChild('Version') then
+			LoadingFrame.Version.TextTransparency = 1
+			LoadingFrame.Version.TextColor3 = themeAccent
+		end
 		
 		-- Apply theme background color to LoadingFrame
 		LoadingFrame.BackgroundColor3 = SelectedTheme.Background or Color3.fromRGB(15, 12, 25)
