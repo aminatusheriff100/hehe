@@ -106,8 +106,8 @@ local TweenService = getService('TweenService')
 local useStudio = RunService:IsStudio() or false
 local AnimationLib = {}
 
--- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
--- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-- ═══════════════════════════════════════════════════════════════════════════════
+-- ═══════════════════════════════════════════════════════════════════════════════
 AnimationLib.Presets = {
 	HoverIn = TweenInfo.new(0.18, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
 	HoverOut = TweenInfo.new(0.22, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
@@ -426,7 +426,7 @@ function AnimationLib.CreateRipple(element, position)
 	end)
 end
 
--- ðŸ”¥ ANIMATED BACKGROUND EFFECTS ðŸ”¥
+-- 🔥 ANIMATED BACKGROUND EFFECTS 🔥
 
 -- Create floating particles background
 function AnimationLib.CreateParticleBackground(parent, color, count)
@@ -700,8 +700,8 @@ function AnimationLib.ColorPulse(element, pulseColor, duration)
 	end)
 end
 
--- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
--- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-- ╔════════════════════════════════════════════════════════════════════════════╗
+-- ╚════════════════════════════════════════════════════════════════════════════╝
 
 local ExecutorScanner = {}
 
@@ -1029,7 +1029,7 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	title.Size = UDim2.new(1, -20, 0, 25)
 	title.Position = UDim2.new(0, 10, 0, 8)
 	title.BackgroundTransparency = 1
-	title.Text = "âš¡ " .. scan.executor .. " Compatibility"
+	title.Text = "⚡ " .. scan.executor .. " Compatibility"
 	title.TextColor3 = Color3.new(1, 1, 1)
 	title.TextSize = 16
 	title.Font = Enum.Font.GothamBold
@@ -1042,7 +1042,7 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	scoreLabel.Size = UDim2.new(1, -20, 0, 20)
 	scoreLabel.Position = UDim2.new(0, 10, 0, 35)
 	scoreLabel.BackgroundTransparency = 1
-	scoreLabel.Text = scan.score.rating .. " â€¢ " .. scan.score.percentage .. "% (" .. scan.score.availableCount .. "/" .. scan.score.totalCount .. " APIs)"
+	scoreLabel.Text = scan.score.rating .. " • " .. scan.score.percentage .. "% (" .. scan.score.availableCount .. "/" .. scan.score.totalCount .. " APIs)"
 	scoreLabel.TextColor3 = scan.score.color
 	scoreLabel.TextSize = 13
 	scoreLabel.Font = Enum.Font.GothamMedium
@@ -1057,7 +1057,7 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	closeBtn.Position = UDim2.new(1, -35, 0, 5)
 	closeBtn.BackgroundColor3 = SelectedTheme.ToggleDisabled or Color3.fromRGB(200, 60, 60)
 	closeBtn.BackgroundTransparency = 0.5
-	closeBtn.Text = "âœ•"
+	closeBtn.Text = "✕"
 	closeBtn.TextColor3 = SelectedTheme.TextColor
 	closeBtn.TextSize = 16
 	closeBtn.Font = Enum.Font.GothamBold
@@ -1090,7 +1090,7 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	featuresTitle.Name = "FeaturesTitle"
 	featuresTitle.Size = UDim2.new(1, 0, 0, 25)
 	featuresTitle.BackgroundTransparency = 1
-	featuresTitle.Text = "ðŸ“Š Feature Compatibility"
+	featuresTitle.Text = "📊 Feature Compatibility"
 	featuresTitle.TextColor3 = SelectedTheme.TextColor
 	featuresTitle.TextSize = 14
 	featuresTitle.Font = Enum.Font.GothamBold
@@ -1165,7 +1165,7 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	categoriesTitle.Name = "CategoriesTitle"
 	categoriesTitle.Size = UDim2.new(1, 0, 0, 25)
 	categoriesTitle.BackgroundTransparency = 1
-	categoriesTitle.Text = "ðŸ”§ API Categories"
+	categoriesTitle.Text = "🔧 API Categories"
 	categoriesTitle.TextColor3 = SelectedTheme.TextColor
 	categoriesTitle.TextSize = 14
 	categoriesTitle.Font = Enum.Font.GothamBold
@@ -1177,23 +1177,15 @@ function ExecutorScanner.ShowResultsPopup(parent)
 	for category, data in pairs(scan.categories) do
 		local catFrame = Instance.new("Frame")
 		catFrame.Name = category
-		catFrame.Size = UDim2.new(1, 0, 0, 0)
-		catFrame.AutomaticSize = Enum.AutomaticSize.Y
+		catFrame.Size = UDim2.new(1, 0, 0, 22)
 		catFrame.BackgroundTransparency = 1
 		catFrame.LayoutOrder = layoutOrder
 		catFrame.Parent = content
 		
-		-- Add layout for proper text alignment
-		local catLayout = Instance.new("UIListLayout")
-		catLayout.FillDirection = Enum.FillDirection.Horizontal
-		catLayout.HorizontalAlignment = Enum.HorizontalAlignment.SpaceBetween
-		catLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-		catLayout.Parent = catFrame
-		
 		local catName = Instance.new("TextLabel")
-		catName.Size = UDim2.new(0.5, 0, 0, 22)
+		catName.Size = UDim2.new(0.5, 0, 1, 0)
 		catName.BackgroundTransparency = 1
-		catName.Text = "  â€¢ " .. category
+		catName.Text = "  • " .. category
 		catName.TextColor3 = SelectedTheme.TabTextColor or SelectedTheme.TextColor
 		catName.TextSize = 11
 		catName.Font = Enum.Font.Gotham
@@ -1204,7 +1196,8 @@ function ExecutorScanner.ShowResultsPopup(parent)
 		local catColor = catPercent >= 80 and Color3.fromRGB(50, 200, 100) or catPercent >= 50 and Color3.fromRGB(200, 180, 50) or Color3.fromRGB(200, 60, 60)
 		
 		local catValue = Instance.new("TextLabel")
-		catValue.Size = UDim2.new(0.5, 0, 0, 22)
+		catValue.Size = UDim2.new(0.5, 0, 1, 0)
+		catValue.Position = UDim2.new(0.5, 0, 0, 0)
 		catValue.BackgroundTransparency = 1
 		catValue.Text = data.available .. "/" .. data.total .. " available"
 		catValue.TextColor3 = catColor
@@ -2096,7 +2089,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(200, 150, 175)
 		},
 		
-		-- ðŸ”¥ NIGHTTESTER - Premium Purple Theme ðŸ”¥
+		-- 🔥 NIGHTTESTER - Premium Purple Theme 🔥
 		NightTester = {
 			TextColor = Color3.fromRGB(240, 235, 255),
 			Background = Color3.fromRGB(12, 10, 22),
@@ -2141,7 +2134,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(130, 120, 170)
 		},
 		
-		-- ðŸ”¥ OCEAN - Deep Blue Theme ðŸ”¥
+		-- 🔥 OCEAN - Deep Blue Theme 🔥
 		Ocean = {
 			TextColor = Color3.fromRGB(220, 240, 255),
 			Background = Color3.fromRGB(8, 15, 25),
@@ -2183,7 +2176,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(100, 140, 180)
 		},
 		
-		-- ðŸ”¥ FOREST - Green Nature Theme ðŸ”¥
+		-- 🔥 FOREST - Green Nature Theme 🔥
 		Forest = {
 			TextColor = Color3.fromRGB(220, 255, 230),
 			Background = Color3.fromRGB(10, 18, 12),
@@ -2228,7 +2221,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(110, 160, 125)
 		},
 		
-		-- ðŸ”¥ GOLD - Luxury Gold Theme ðŸ”¥
+		-- 🔥 GOLD - Luxury Gold Theme 🔥
 		Gold = {
 			TextColor = Color3.fromRGB(255, 245, 220),
 			Background = Color3.fromRGB(18, 14, 8),
@@ -2273,7 +2266,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(150, 130, 100)
 		},
 		
-		-- ðŸ”¥ CHERRY - Red/Pink Theme ðŸ”¥
+		-- 🔥 CHERRY - Red/Pink Theme 🔥
 		Cherry = {
 			TextColor = Color3.fromRGB(255, 235, 240),
 			Background = Color3.fromRGB(20, 10, 15),
@@ -2318,7 +2311,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(180, 140, 160)
 		},
 		
-		-- ðŸ”¥ PIKACHU - Electric Yellow Theme with Background (DARK TEXT) ðŸ”¥
+		-- 🔥 PIKACHU - Electric Yellow Theme with Background (DARK TEXT) 🔥
 		Pikachu = {
 			TextColor = Color3.fromRGB(50, 35, 10),  -- VERY dark brown for max readability
 			Background = Color3.fromRGB(255, 245, 180),  -- Warm yellow
@@ -2363,7 +2356,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(140, 110, 50)
 		},
 		
-		-- ðŸ”¥ SAKURA - Anime Pink Theme with Background (DARK TEXT FOR READABILITY) ðŸ”¥
+		-- 🔥 SAKURA - Anime Pink Theme with Background (DARK TEXT FOR READABILITY) 🔥
 		Sakura = {
 			TextColor = Color3.fromRGB(80, 20, 50),  -- VERY dark maroon for max readability
 			Background = Color3.fromRGB(255, 240, 248),  -- Soft pink
@@ -2408,7 +2401,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(140, 80, 110)
 		},
 		
-		-- ðŸ”¥ GALAXY - Space Purple Theme with Background ðŸ”¥
+		-- 🔥 GALAXY - Space Purple Theme with Background 🔥
 		Galaxy = {
 			TextColor = Color3.fromRGB(230, 220, 255),
 			Background = Color3.fromRGB(15, 10, 35),
@@ -2453,7 +2446,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(140, 120, 180)
 		},
 		
-		-- ðŸ”¥ DRAGON - Fire Red Theme with Background ðŸ”¥
+		-- 🔥 DRAGON - Fire Red Theme with Background 🔥
 		Dragon = {
 			TextColor = Color3.fromRGB(255, 240, 220),
 			Background = Color3.fromRGB(30, 10, 10),
@@ -2498,7 +2491,7 @@ local NightUILibrary = {
 			PlaceholderColor = Color3.fromRGB(200, 150, 140)
 		},
 		
-		-- ðŸ”¥ AQUA - Ocean Blue Theme with Background ðŸ”¥
+		-- 🔥 AQUA - Ocean Blue Theme with Background 🔥
 		Aqua = {
 			TextColor = Color3.fromRGB(220, 250, 255),
 			Background = Color3.fromRGB(10, 30, 50),
@@ -2580,6 +2573,17 @@ repeat
 
 	buildAttempts = buildAttempts + 1
 until buildAttempts >= 2
+
+-- Patch: Remove unsupported UIFlexAlignment properties (e.g. SpaceBetween) for executor compatibility
+for _, desc in ipairs(NightUI:GetDescendants()) do
+	if desc:IsA("UIListLayout") or desc:IsA("UIGridLayout") then
+		pcall(function() desc.HorizontalFlex = Enum.UIFlexAlignment.None end)
+		pcall(function() desc.VerticalFlex = Enum.UIFlexAlignment.None end)
+	end
+	if desc:IsA("UIFlexItem") then
+		pcall(function() desc:Destroy() end)
+	end
+end
 
 NightUI.Enabled = false
 NightUI.Name = "VeloxLabs-"..tostring(math.random(100000,999999))
@@ -2780,8 +2784,8 @@ local searchOpen = false
 
 local SelectedTheme = NightUILibrary.Theme.Default
 
--- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
--- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-- ╔════════════════════════════════════════════════════════════════════════════╗
+-- ╚════════════════════════════════════════════════════════════════════════════╝
 
 -- Theme transition duration
 local THEME_TWEEN_INFO = TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
@@ -2851,7 +2855,7 @@ local ElementThemeMap = {
 	Notification = function(element, theme) return {BackgroundColor3 = theme.NotificationBackground or theme.ElementBackground} end,
 }
 
--- ðŸ”¥ THEME COLOR HELPER - Ensures all themes have required colors with fallbacks ðŸ”¥
+-- 🔥 THEME COLOR HELPER - Ensures all themes have required colors with fallbacks 🔥
 local function GetThemeColor(theme, colorName)
 	if theme[colorName] then
 		return theme[colorName]
@@ -2870,7 +2874,7 @@ local function GetThemeColor(theme, colorName)
 	return fallbacks[colorName]
 end
 
--- ðŸ”¥ RECURSIVE APPLY THEME - Updates ALL nested UI elements with smooth animations ðŸ”¥
+-- 🔥 RECURSIVE APPLY THEME - Updates ALL nested UI elements with smooth animations 🔥
 local function ApplyThemeToElement(element, theme, animated, currentTabPage)
 	if not element or not theme then return end
 	
@@ -3133,10 +3137,10 @@ local function ChangeTheme(Theme, NightUIInstance, animated)
 	local Elements = Main:FindFirstChild('Elements')
 	local currentTabPage = Elements and Elements:FindFirstChild('UIPageLayout') and Elements.UIPageLayout.CurrentPage
 	
-	-- ðŸ”¥ APPLY THEME RECURSIVELY TO ALL ELEMENTS ðŸ”¥
+	-- 🔥 APPLY THEME RECURSIVELY TO ALL ELEMENTS 🔥
 	ApplyThemeToElement(NightUIInstance, SelectedTheme, animated, currentTabPage)
 	
-	-- ðŸ”¥ SPECIAL HANDLING FOR SPECIFIC ELEMENTS ðŸ”¥
+	-- 🔥 SPECIAL HANDLING FOR SPECIFIC ELEMENTS 🔥
 	local tweenInfo = animated and THEME_TWEEN_INFO or TweenInfo.new(0)
 	
 	-- Main background
@@ -3284,7 +3288,7 @@ local function ChangeTheme(Theme, NightUIInstance, animated)
 		end
 	end)
 	
-	-- ðŸ”¥ UPDATE ANIMATED BACKGROUNDS ðŸ”¥
+	-- 🔥 UPDATE ANIMATED BACKGROUNDS 🔥
 	pcall(function()
 		local animBg = Main:FindFirstChild("AnimatedBackgrounds")
 		if animBg then
@@ -3314,7 +3318,7 @@ local function ChangeTheme(Theme, NightUIInstance, animated)
 		end
 	end)
 	
-	-- ðŸ”¥ UPDATE SEARCH CONTAINER ðŸ”¥
+	-- 🔥 UPDATE SEARCH CONTAINER 🔥
 	pcall(function()
 		local Topbar = Main:FindFirstChild('Topbar')
 		if Topbar then
@@ -3339,7 +3343,7 @@ local function ChangeTheme(Theme, NightUIInstance, animated)
 	print('[VeloxLabs] Theme applied successfully!')
 end
 
--- ðŸ”¥ EXPOSE THEME FUNCTIONS TO LIBRARY ðŸ”¥
+-- 🔥 EXPOSE THEME FUNCTIONS TO LIBRARY 🔥
 -- NOTE: Main NightUILibrary:ChangeTheme is defined later in the file (around line 10076)
 -- This section only exposes helper functions
 
@@ -3356,7 +3360,7 @@ NightUILibrary.GetThemeNames = function()
 	return names
 end
 
--- ðŸŽ¨ ADD CUSTOM THEME - Register a new theme
+-- 🎨 ADD CUSTOM THEME - Register a new theme
 -- Usage: NightUI:AddTheme("MyTheme", {Background = Color3.fromRGB(...), ...})
 function NightUILibrary:AddTheme(themeName, themeData)
 	if type(themeName) ~= "string" or type(themeData) ~= "table" then
@@ -3591,7 +3595,7 @@ local function SaveConfiguration()
 	end
 end
 
--- ðŸ”¥ SCREEN NOTIFICATION - BOTTOM RIGHT CORNER ðŸ”¥
+-- 🔥 SCREEN NOTIFICATION - BOTTOM RIGHT CORNER 🔥
 function NightUILibrary:ScreenNotify(data)
 	task.spawn(function()
 		local success, err = pcall(function()
@@ -3693,7 +3697,7 @@ function NightUILibrary:ScreenNotify(data)
 		local duration = data.Duration or 5
 		task.wait(duration)
 		
-		-- ðŸ”¥ SMOOTH SLIDE-OUT ANIMATION
+		-- 🔥 SMOOTH SLIDE-OUT ANIMATION
 		TweenService:Create(notif, AnimationLib.Presets.NotifyOut, {
 			Position = UDim2.new(1, 80, 0, 0),
 			BackgroundTransparency = 1
@@ -3712,8 +3716,8 @@ function NightUILibrary:ScreenNotify(data)
 	end)
 end
 
--- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
--- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-- ╔════════════════════════════════════════════════════════════════════════════╗
+-- ╚════════════════════════════════════════════════════════════════════════════╝
 
 local NotificationQueue = {
 	queue = {},
@@ -3724,11 +3728,11 @@ local NotificationQueue = {
 
 -- Notification types with icons and colors
 NotificationQueue.Types = {
-	info = { icon = "â„¹ï¸", color = Color3.fromRGB(80, 150, 220) },
-	success = { icon = "âœ…", color = Color3.fromRGB(80, 200, 120) },
-	warning = { icon = "âš ï¸", color = Color3.fromRGB(220, 180, 60) },
-	error = { icon = "âŒ", color = Color3.fromRGB(220, 80, 80) },
-	default = { icon = "ðŸ””", color = Color3.fromRGB(140, 100, 255) }
+	info = { icon = "ℹ️", color = Color3.fromRGB(80, 150, 220) },
+	success = { icon = "✅", color = Color3.fromRGB(80, 200, 120) },
+	warning = { icon = "⚠️", color = Color3.fromRGB(220, 180, 60) },
+	error = { icon = "❌", color = Color3.fromRGB(220, 80, 80) },
+	default = { icon = "🔔", color = Color3.fromRGB(140, 100, 255) }
 }
 
 function NotificationQueue:Add(data)
@@ -3790,7 +3794,7 @@ function NightUILibrary:ShowNotification(data)
 	self:Notify(data)
 end
 
--- ðŸ·ï¸ WATERMARK - Small, non-intrusive credit display
+-- 🏷️ WATERMARK - Small, non-intrusive credit display
 -- Usage: NightUI:SetWatermark({Enabled = true, Text = "Powered by NightUI", Position = "BottomRight"})
 function NightUILibrary:SetWatermark(options)
 	options = options or {}
@@ -4228,7 +4232,7 @@ local function Unhide()
 						elseif element.Name == 'Divider' then
 							TweenService:Create(element.Divider, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.85}):Play()
 						else
-							-- ðŸ”¥ FIX: Use 0.3 transparency for elements, not 0!
+							-- 🔥 FIX: Use 0.3 transparency for elements, not 0!
 							TweenService:Create(element, AnimationLib.Presets.Smooth, {BackgroundTransparency = 0.3}):Play()
 							if element:FindFirstChild("UIStroke") then
 								TweenService:Create(element.UIStroke, AnimationLib.Presets.Smooth, {Transparency = 0}):Play()
@@ -4465,7 +4469,7 @@ function NightUILibrary:CreateWindow(Settings)
 		NightUI.Parent = CoreGui
 	end
 	
-	-- ðŸ”¥ SET THEME EARLY - Before loading screen to prevent flashbang
+	-- 🔥 SET THEME EARLY - Before loading screen to prevent flashbang
 	if Settings.Theme then
 		if typeof(Settings.Theme) == 'string' and NightUILibrary.Theme[Settings.Theme] then
 			SelectedTheme = NightUILibrary.Theme[Settings.Theme]
@@ -4484,8 +4488,8 @@ function NightUILibrary:CreateWindow(Settings)
 	local dragInteract = dragBar and dragBar.Interact or nil
 	local dragBarCosmetic = dragBar and dragBar.Drag or nil
 	
-	-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-	-- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+	-- ╔════════════════════════════════════════════════════════════════╗
+	-- ╚════════════════════════════════════════════════════════════════╝
 	
 	-- Hide/Remove NightUI Logo in LoadingFrame
 	if LoadingFrame then
@@ -4528,7 +4532,7 @@ function NightUILibrary:CreateWindow(Settings)
 			end
 		end
 		
-		-- ðŸ”¥ OFFSET WINDOWS - Cascade style (each window slightly offset)
+		-- 🔥 OFFSET WINDOWS - Cascade style (each window slightly offset)
 		local offsetX = (windowCount % 3) * 50  -- Horizontal offset: 0, 50, 100, then repeat
 		local offsetY = (windowCount % 3) * 40  -- Vertical offset: 0, 40, 80, then repeat
 		Main.Position = UDim2.new(0.5, offsetX, 0.5, offsetY)
@@ -4553,7 +4557,7 @@ function NightUILibrary:CreateWindow(Settings)
 			corner.Parent = Main
 		end
 		
-		-- ðŸ”¥ ANIMATED BACKGROUND EFFECTS ðŸ”¥
+		-- 🔥 ANIMATED BACKGROUND EFFECTS 🔥
 		-- Create a container for animated backgrounds (above any background image)
 		local animBgContainer = Instance.new("Frame")
 		animBgContainer.Name = "AnimatedBackgrounds"
@@ -4695,7 +4699,7 @@ function NightUILibrary:CreateWindow(Settings)
 		avatarContainer.Size = UDim2.new(1, -10, 0, 115)
 		avatarContainer.ZIndex = 15  -- Above everything
 		
-		-- ðŸ”¥ TAB CONTAINER - Holds tabs with flexible layout ðŸ”¥
+		-- 🔥 TAB CONTAINER - Holds tabs with flexible layout 🔥
 		local tabContainer = Instance.new("Frame")
 		tabContainer.Name = "TabContainer"
 		tabContainer.Parent = TabList
@@ -4729,30 +4733,33 @@ function NightUILibrary:CreateWindow(Settings)
 		local function updateWindowSize()
 			local tabs = {}
 			for _, child in ipairs(tabContainer:GetChildren()) do
-				if child:IsA("Frame") and child.Name ~= "Template" and child.Name ~= "Placeholder" then
+				if child:IsA("Frame") and child.Name ~= "Template" and child.Name ~= "Placeholder" and child.Visible then
 					table.insert(tabs, child)
 				end
 			end
 			
 			local tabCount = #tabs
-			local tabHeight = 36
-			local padding = 4
-			local avatarHeight = 125
-			local extraPadding = 20
+			local tabHeight = 44  -- Actual tab height (matching CreateTab)
+			local layoutPadding = 8  -- UIListLayout padding between tabs
+			local topbarHeight = 45
+			local avatarSectionHeight = 130  -- Avatar container + spacing
+			local containerPaddingTop = 5  -- UIPadding top
+			local containerPaddingBottom = 8  -- UIPadding bottom
+			local bottomMargin = 15
 			
 			-- Calculate required height for all tabs
-			local requiredTabSpace = (tabCount * tabHeight) + ((tabCount - 1) * padding) + extraPadding
-			local totalSidebarHeight = avatarHeight + requiredTabSpace
+			local tabsHeight = (tabCount * tabHeight) + ((math.max(0, tabCount - 1)) * layoutPadding)
+			local totalContentHeight = topbarHeight + avatarSectionHeight + containerPaddingTop + tabsHeight + containerPaddingBottom + bottomMargin
 			
-			-- Window needs: topbar (45) + sidebar content + bottom margin
-			local minWindowHeight = 450
-			local maxWindowHeight = 700
-			local optimalHeight = math.clamp(totalSidebarHeight + 60, minWindowHeight, maxWindowHeight)
+			-- Clamp to reasonable bounds
+			local minWindowHeight = 400
+			local maxWindowHeight = 750
+			local optimalHeight = math.clamp(totalContentHeight, minWindowHeight, maxWindowHeight)
 			
 			-- Animate window resize
 			if Main then
 				TweenService:Create(Main, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
-					Size = UDim2.new(0, 750, 0, optimalHeight)
+					Size = UDim2.new(0, 800, 0, optimalHeight)
 				}):Play()
 			end
 		end
@@ -4895,8 +4902,8 @@ function NightUILibrary:CreateWindow(Settings)
 	end
 	
 	if Elements then
-		Elements.Position = UDim2.new(0, 200, 0, 45)  -- ðŸ”¥ Right after 200px sidebar
-		Elements.Size = UDim2.new(1, -200, 1, -45)    -- ðŸ”¥ Full width minus 200px sidebar
+		Elements.Position = UDim2.new(0, 200, 0, 45)  -- 🔥 Right after 200px sidebar
+		Elements.Size = UDim2.new(1, -200, 1, -45)    -- 🔥 Full width minus 200px sidebar
 		Elements.BackgroundTransparency = 0.95
 		Elements.BackgroundColor3 = SelectedTheme.Background
 		Elements.BorderSizePixel = 0
@@ -4985,7 +4992,7 @@ function NightUILibrary:CreateWindow(Settings)
 		LoadingFrame.Visible = true
 		LoadingFrame.ZIndex = 50  -- Above everything
 		
-		-- ðŸ”¥ ADD THEME BACKGROUND IMAGE TO LOADING SCREEN ðŸ”¥
+		-- 🔥 ADD THEME BACKGROUND IMAGE TO LOADING SCREEN 🔥
 		if SelectedTheme.BackgroundImage then
 			local loadingBgImage = LoadingFrame:FindFirstChild("ThemeBackground") or Instance.new("ImageLabel")
 			loadingBgImage.Name = "ThemeBackground"
@@ -5028,7 +5035,7 @@ function NightUILibrary:CreateWindow(Settings)
 		bgGradient.Rotation = 45
 		bgGradient.Parent = LoadingFrame
 		
-		-- ðŸ”¥ PLAYER AVATAR ON LOADING SCREEN ðŸ”¥
+		-- 🔥 PLAYER AVATAR ON LOADING SCREEN 🔥
 		local playerAvatar = LoadingFrame:FindFirstChild("PlayerAvatar") or Instance.new("ImageLabel")
 		playerAvatar.Name = "PlayerAvatar"
 		playerAvatar.Parent = LoadingFrame
@@ -5086,7 +5093,7 @@ function NightUILibrary:CreateWindow(Settings)
 		playerName.ZIndex = 52
 		
 		-- Animate welcome text with typing effect
-		local welcomeText = "ðŸ‘‹ Welcome, " .. Players.LocalPlayer.Name
+		local welcomeText = "👋 Welcome, " .. Players.LocalPlayer.Name
 		task.spawn(function()
 			task.wait(0.5)
 			for i = 1, #welcomeText do
@@ -5110,7 +5117,7 @@ function NightUILibrary:CreateWindow(Settings)
 		loadingTitle.ZIndex = 52
 		
 		-- Simple typing animation for title (no weird symbols)
-		local titleText = "ðŸŒ™ " .. (Settings.LoadingTitle or Settings.Name or "NIGHT TESTER")
+		local titleText = "🌙 " .. (Settings.LoadingTitle or Settings.Name or "NIGHT TESTER")
 		task.spawn(function()
 			for i = 1, #titleText do
 				loadingTitle.Text = string.sub(titleText, 1, i)
@@ -5130,7 +5137,7 @@ function NightUILibrary:CreateWindow(Settings)
 		spinnerContainer.BackgroundTransparency = 1
 		spinnerContainer.ZIndex = 52
 		
-		-- ðŸ”¥ SPINNER COLORS FROM THEME ðŸ”¥
+		-- 🔥 SPINNER COLORS FROM THEME 🔥
 		local spinnerColor1 = SelectedTheme.TabBackgroundSelected or Color3.fromRGB(130, 80, 255)
 		local spinnerColor2 = SelectedTheme.ToggleEnabled or Color3.fromRGB(0, 200, 255)
 		local spinnerGlow = SelectedTheme.ToggleEnabledStroke or Color3.fromRGB(200, 150, 255)
@@ -5245,7 +5252,7 @@ function NightUILibrary:CreateWindow(Settings)
 		statusText.Size = UDim2.new(0, 300, 0, 20)
 		statusText.BackgroundTransparency = 1
 		statusText.Font = Enum.Font.GothamMedium
-		statusText.Text = "âš¡ Initializing..."
+		statusText.Text = "⚡ Initializing..."
 		statusText.TextColor3 = SelectedTheme.TextColor or Color3.fromRGB(180, 160, 220)
 		statusText.TextSize = 12
 		statusText.TextTransparency = 0
@@ -5258,7 +5265,7 @@ function NightUILibrary:CreateWindow(Settings)
 		particleContainer.ClipsDescendants = true
 		particleContainer.ZIndex = 0
 		
-		-- ðŸ”¥ PARTICLE COLORS FROM THEME ðŸ”¥
+		-- 🔥 PARTICLE COLORS FROM THEME 🔥
 		local particleBaseColor = SelectedTheme.TabBackgroundSelected or Color3.fromRGB(100, 150, 255)
 		local particleR = math.floor(particleBaseColor.R * 255)
 		local particleG = math.floor(particleBaseColor.G * 255)
@@ -5490,7 +5497,7 @@ function NightUILibrary:CreateWindow(Settings)
 		end
 	end
 
-	-- ðŸ”¥ HIDE DRAG BAR COMPLETELY
+	-- 🔥 HIDE DRAG BAR COMPLETELY
 	if dragBar then
 		dragBar.Visible = false
 		if dragBarCosmetic then
@@ -5499,7 +5506,7 @@ function NightUILibrary:CreateWindow(Settings)
 		end
 	end
 
-	-- ðŸ”¥ ALLOWED THEMES FILTER ðŸ”¥
+	-- 🔥 ALLOWED THEMES FILTER 🔥
 	-- Store allowed themes for this window (nil = all themes allowed)
 	local AllowedThemes = Settings.AllowedThemes  -- table of theme names or nil
 	
@@ -5549,12 +5556,12 @@ function NightUILibrary:CreateWindow(Settings)
 		end
 	end
 
-	-- ðŸ”¥ SHOW LOADING ANIMATION FOR ALL WINDOWS (user wants it back)
+	-- 🔥 SHOW LOADING ANIMATION FOR ALL WINDOWS (user wants it back)
 	Topbar.Visible = false
 	Elements.Visible = false
 	LoadingFrame.Visible = true
 		
-		-- ðŸ”¥ THEME-MATCHING LOADING SCREEN ANIMATION ðŸ”¥
+		-- 🔥 THEME-MATCHING LOADING SCREEN ANIMATION 🔥
 		task.spawn(function()
 		local titleText = Settings.LoadingTitle or "VeloxLabs"
 		local subtitleText = Settings.LoadingSubtitle or "by VeloxLabs"
@@ -5842,8 +5849,8 @@ function NightUILibrary:CreateWindow(Settings)
 
 			local KeyMain = KeyUI.Main
 			
-			-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-			-- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+			-- ╔════════════════════════════════════════════════════════════════════════════╗
+			-- ╚════════════════════════════════════════════════════════════════════════════╝
 			
 			-- Get custom colors from KeySettings (or use theme defaults)
 			local keyConfig = Settings.KeySettings or {}
@@ -6068,7 +6075,7 @@ function NightUILibrary:CreateWindow(Settings)
 				end
 				
 				if KeyFound then 
-					-- ðŸŽ‰ SUCCESS!
+					-- 🎉 SUCCESS!
 					successAnimation()
 					closeKeyUI(false)
 					Passthrough = true
@@ -6078,16 +6085,16 @@ function NightUILibrary:CreateWindow(Settings)
 						if writefile then
 							writefile(NightUIFolder.."/Key System".."/"..Settings.KeySettings.FileName..ConfigurationExtension, FoundKey)
 						end
-						NightUILibrary:Notify({Title = "ðŸ”“ Key Saved", Content = "Your key has been saved for next time!", Duration = 4})
+						NightUILibrary:Notify({Title = "🔓 Key Saved", Content = "Your key has been saved for next time!", Duration = 4})
 					else
-						NightUILibrary:Notify({Title = "ðŸ”“ Access Granted", Content = "Welcome! Enjoy the script.", Duration = 3})
+						NightUILibrary:Notify({Title = "🔓 Access Granted", Content = "Welcome! Enjoy the script.", Duration = 3})
 					end
 				else
-					-- âŒ WRONG KEY
+					-- ❌ WRONG KEY
 					if AttemptsRemaining == 0 then
 						closeKeyUI(true)
 						task.wait(0.5)
-						Players.LocalPlayer:Kick("âŒ No attempts remaining")
+						Players.LocalPlayer:Kick("❌ No attempts remaining")
 						game:Shutdown()
 					end
 					
@@ -6096,7 +6103,7 @@ function NightUILibrary:CreateWindow(Settings)
 					shakeError()
 					
 					-- Update subtitle with attempts remaining
-					KeyMain.Subtitle.Text = "âŒ Wrong key! " .. AttemptsRemaining .. " attempts left"
+					KeyMain.Subtitle.Text = "❌ Wrong key! " .. AttemptsRemaining .. " attempts left"
 					TweenService:Create(KeyMain.Subtitle, TweenInfo.new(0.2), {TextColor3 = Color3.fromRGB(220, 80, 80)}):Play()
 					task.wait(1.5)
 					KeyMain.Subtitle.Text = Settings.KeySettings.Subtitle or "Key System"
@@ -6193,8 +6200,8 @@ function NightUILibrary:CreateWindow(Settings)
 	local tabIndex = 0  -- Track tab order for staggered animations
 	local allElements = {}  -- Track all elements for search
 	
-	-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-	-- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+	-- ╔════════════════════════════════════════════════════════════════════════════╗
+	-- ╚════════════════════════════════════════════════════════════════════════════╝
 	
 	local searchExpanded = false
 	
@@ -6226,7 +6233,7 @@ function NightUILibrary:CreateWindow(Settings)
 	searchIconBtn.Size = UDim2.new(0, 32, 0, 32)
 	searchIconBtn.Position = UDim2.new(0, 0, 0, 0)
 	searchIconBtn.BackgroundTransparency = 1
-	searchIconBtn.Text = "ðŸ”"
+	searchIconBtn.Text = "🔍"
 	searchIconBtn.TextSize = 14
 	searchIconBtn.Font = Enum.Font.Gotham
 	searchIconBtn.TextColor3 = SelectedTheme.TextColor
@@ -6376,8 +6383,8 @@ function NightUILibrary:CreateWindow(Settings)
 		performSearch("")
 	end
 	
-	-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-	-- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+	-- ╔════════════════════════════════════════════════════════════════════════════╗
+	-- ╚════════════════════════════════════════════════════════════════════════════╝
 	local autoResizeEnabled = true
 	local baseWindowHeight = 400
 	local maxWindowHeight = 650
@@ -6611,7 +6618,7 @@ function NightUILibrary:CreateWindow(Settings)
 		TabButton.Interact.MouseButton1Click:Connect(function()
 			if Minimised then return end
 			
-			-- ðŸ”¥ SCALE BOUNCE on click
+			-- 🔥 SCALE BOUNCE on click
 			AnimationLib.ScaleBounce(TabButton, 1.05)
 			
 			-- Smooth tab selection with AnimationLib presets
@@ -6736,8 +6743,8 @@ function NightUILibrary:CreateWindow(Settings)
 
 		local Tab = {}
 		
-		-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-		-- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+		-- ╔════════════════════════════════════════════════════════════════════════════╗
+		-- ╚════════════════════════════════════════════════════════════════════════════╝
 		
 		function Tab:CreateSection(SectionSettings)
 			local sectionName = SectionSettings.Name or "Section"
@@ -6764,7 +6771,7 @@ function NightUILibrary:CreateWindow(Settings)
 			headerIcon.Size = UDim2.new(0, 20, 1, 0)
 			headerIcon.Position = UDim2.new(0, 10, 0, 0)
 			headerIcon.BackgroundTransparency = 1
-			headerIcon.Text = collapsed and "â–¶" or "â–¼"
+			headerIcon.Text = collapsed and "▶" or "▼"
 			headerIcon.TextColor3 = SelectedTheme.TextColor
 			headerIcon.TextSize = 10
 			headerIcon.Font = Enum.Font.GothamBold
@@ -7369,9 +7376,9 @@ function NightUILibrary:CreateWindow(Settings)
 			sectionLine.Parent = Section
 			sectionLine.AnchorPoint = Vector2.new(0.5, 0)
 			sectionLine.Position = UDim2.new(0.5, 0, 1, -2)
-			sectionLine.Size = UDim2.new(0.85, 0, 0, 3)  -- ðŸ”¥ BIGGER: 85% width, 3px height
+			sectionLine.Size = UDim2.new(0.85, 0, 0, 3)  -- 🔥 BIGGER: 85% width, 3px height
 			sectionLine.BackgroundColor3 = sectionColor
-			sectionLine.BackgroundTransparency = 0.3  -- ðŸ”¥ More visible
+			sectionLine.BackgroundTransparency = 0.3  -- 🔥 More visible
 			sectionLine.BorderSizePixel = 0
 			
 			local lineCorner = Instance.new("UICorner")
@@ -7666,7 +7673,7 @@ function NightUILibrary:CreateWindow(Settings)
 			Paragraph.Title.TextTransparency = 1
 			Paragraph.Content.TextTransparency = 1
 			
-			-- ðŸ”¥ FLEX MODE - ENHANCED STYLING (USES THEME COLORS) ðŸ”¥
+			-- 🔥 FLEX MODE - ENHANCED STYLING (USES THEME COLORS) 🔥
 			if isFlex then
 				-- Get theme colors for flex gradient
 				local flexColor1 = SelectedTheme.TabBackgroundSelected or Color3.fromRGB(50, 30, 90)
@@ -7936,7 +7943,7 @@ function NightUILibrary:CreateWindow(Settings)
 			Dropdown.BackgroundColor3 = SelectedTheme.ElementBackground
 			Dropdown.BackgroundTransparency = 0.3
 			
-			-- ðŸ”¥ CREATE A NEW TITLE LABEL (don't rely on template) ðŸ”¥
+			-- 🔥 CREATE A NEW TITLE LABEL (don't rely on template) 🔥
 			local existingTitle = Dropdown:FindFirstChild("Title")
 			if existingTitle then
 				existingTitle:Destroy()  -- Remove old title
@@ -7959,7 +7966,7 @@ function NightUILibrary:CreateWindow(Settings)
 			DropdownTitle.BackgroundTransparency = 1
 			DropdownTitle.BorderSizePixel = 0
 			
-			-- ðŸ”¥ CREATE SELECTED LABEL (don't rely on template) ðŸ”¥
+			-- 🔥 CREATE SELECTED LABEL (don't rely on template) 🔥
 			local existingSelected = Dropdown:FindFirstChild("Selected")
 			if existingSelected then
 				existingSelected:Destroy()
@@ -8145,7 +8152,7 @@ function NightUILibrary:CreateWindow(Settings)
 			DropdownToggle.Rotation = 180
 
 			DropdownInteract.MouseButton1Click:Connect(function()
-				-- ðŸ”¥ CLICK FEEDBACK
+				-- 🔥 CLICK FEEDBACK
 				TweenService:Create(Dropdown, AnimationLib.Presets.Press, {BackgroundTransparency = 0.1}):Play()
 				TweenService:Create(ddAccent, AnimationLib.Presets.Press, {Size = UDim2.new(0, 4, 0.8, 0)}):Play()
 				task.wait(0.08)
@@ -8153,7 +8160,7 @@ function NightUILibrary:CreateWindow(Settings)
 				
 				if Debounce then return end
 				if DropdownList.Visible then
-					-- ðŸ”¥ SMOOTH COLLAPSE
+					-- 🔥 SMOOTH COLLAPSE
 					Debounce = true
 					TweenService:Create(Dropdown, AnimationLib.Presets.DropdownCollapse, {Size = UDim2.new(1, 0, 0, 45)}):Play()
 					
@@ -8250,7 +8257,7 @@ function NightUILibrary:CreateWindow(Settings)
 
 			local function SetDropdownOptions()
 				for _, Option in ipairs(DropdownSettings.Options) do
-					-- ðŸ”¥ CREATE OPTION FROM SCRATCH (don't rely on template) ðŸ”¥
+					-- 🔥 CREATE OPTION FROM SCRATCH (don't rely on template) 🔥
 					local DropdownOption = Instance.new("Frame")
 					DropdownOption.Name = Option
 					DropdownOption.Parent = DropdownList
@@ -9221,7 +9228,7 @@ function NightUILibrary:CreateWindow(Settings)
 		end
 	end)
 	
-	-- ðŸ”¥ HARDCODED WATERMARK - Bottom right corner (hidden, small) ðŸ”¥
+	-- 🔥 HARDCODED WATERMARK - Bottom right corner (hidden, small) 🔥
 	local _w = Instance.new("TextLabel")
 	_w.Name = "."
 	_w.Parent = NightUI
@@ -9253,7 +9260,7 @@ function NightUILibrary:CreateWindow(Settings)
 	
 	task.wait(0.1)
 	
-	-- ðŸ”¥ ANIMATE SIDEBAR SLIDING IN FROM LEFT ðŸ”¥
+	-- 🔥 ANIMATE SIDEBAR SLIDING IN FROM LEFT 🔥
 	if TabList then
 		-- Setup for animation
 		TabList.AnchorPoint = Vector2.new(0, 0)
@@ -9271,7 +9278,7 @@ function NightUILibrary:CreateWindow(Settings)
 		print("[VeloxLabs] Sidebar animation started")
 	end
 	
-	-- ðŸ”¥ ANIMATE CONTENT AREA FADING IN ðŸ”¥
+	-- 🔥 ANIMATE CONTENT AREA FADING IN 🔥
 	if Elements then
 		Elements.BackgroundTransparency = 1
 		task.delay(0.3, function()
@@ -9325,7 +9332,7 @@ function NightUILibrary:CreateWindow(Settings)
 	local buttonDelay = 0.1
 	task.wait(0.15)
 	
-	-- ðŸ”¥ ANIMATED TOPBAR BUTTONS WITH HOVER EFFECTS ðŸ”¥
+	-- 🔥 ANIMATED TOPBAR BUTTONS WITH HOVER EFFECTS 🔥
 	local function animateButton(button, delay)
 		task.delay(delay, function()
 			button.ImageTransparency = 1
@@ -9639,7 +9646,7 @@ if Main and Main:FindFirstChild('Search') and Main.Search:FindFirstChild('Input'
 	end)
 end
 
--- ðŸ”¥ WINDOW-SPECIFIC SEARCH FUNCTIONS ðŸ”¥
+-- 🔥 WINDOW-SPECIFIC SEARCH FUNCTIONS 🔥
 local function windowOpenSearch()
 	searchOpen = true
 	
@@ -10159,7 +10166,7 @@ function NightUILibrary:ChangeTheme(themeName)
 					end
 				end
 				
-				-- ðŸ”¥ UPDATE JOKE CONTAINER ðŸ”¥
+				-- 🔥 UPDATE JOKE CONTAINER 🔥
 				local jokeContainer = child:FindFirstChild("JokeContainer")
 				if jokeContainer then
 					SafeTween(jokeContainer, "BackgroundColor3", SelectedTheme.ElementBackground)
@@ -10195,7 +10202,7 @@ function NightUILibrary:ChangeTheme(themeName)
 					end
 				end
 				
-				-- ðŸ”¥ UPDATE TOPBAR TITLE & CREDITS ðŸ”¥
+				-- 🔥 UPDATE TOPBAR TITLE & CREDITS 🔥
 				local topbar = main:FindFirstChild("Topbar")
 				if topbar then
 					SafeTween(topbar, "BackgroundColor3", SelectedTheme.Topbar)
@@ -10239,8 +10246,8 @@ function NightUILibrary:ChangeTheme(themeName)
 	return true
 end
 
--- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
--- â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-- ╔════════════════════════════════════════════════════════════════════════════╗
+-- ╚════════════════════════════════════════════════════════════════════════════╝
 
 -- Get executor compatibility info
 function NightUILibrary:GetExecutorInfo()
