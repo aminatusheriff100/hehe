@@ -4029,7 +4029,9 @@ local function Hide(notify: boolean?)
 
 	if useMobilePrompt and MPrompt then
 		TweenService:Create(MPrompt, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {Size = UDim2.new(0, 120, 0, 30), Position = UDim2.new(0.5, 0, 0, 20), BackgroundTransparency = 0.3}):Play()
-		TweenService:Create(MPrompt.Title, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {TextTransparency = 0.3}):Play()
+		if MPrompt:FindFirstChild("Title") then
+			TweenService:Create(MPrompt.Title, TweenInfo.new(0.5, Enum.EasingStyle.Exponential), {TextTransparency = 0.3}):Play()
+		end
 	end
 
 	for _, TopbarButton in ipairs(Topbar:GetChildren()) do
@@ -4193,7 +4195,9 @@ local function Unhide()
 
 	if MPrompt then
 		TweenService:Create(MPrompt, AnimationLib.Presets.PanelClose, {Size = UDim2.new(0, 40, 0, 10), Position = UDim2.new(0.5, 0, 0, -50), BackgroundTransparency = 1}):Play()
-		TweenService:Create(MPrompt.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play()
+		if MPrompt:FindFirstChild("Title") then
+			TweenService:Create(MPrompt.Title, AnimationLib.Presets.PanelClose, {TextTransparency = 1}):Play()
+		end
 		task.spawn(function()
 			task.wait(0.4)
 			MPrompt.Visible = false
@@ -4995,7 +4999,9 @@ function NightUILibrary:CreateWindow(Settings)
 	end
 	
 	NightUI.DisplayOrder = 100
-	LoadingFrame.Version.Text = "VeloxLabs " .. Release
+	if LoadingFrame:FindFirstChild('Version') then
+		LoadingFrame.Version.Text = "VeloxLabs " .. Release
+	end
 	
 	-- Check sizing
 	local minSize = Vector2.new(1024, 768)
@@ -5492,7 +5498,7 @@ function NightUILibrary:CreateWindow(Settings)
 		LoadingFrame.LogoHolder.Visible = false
 	end
 
-	if Settings.ShowText then
+	if Settings.ShowText and MPrompt and MPrompt:FindFirstChild('Title') then
 		MPrompt.Title.Text = 'Show '..Settings.ShowText
 	end
 	
@@ -5691,8 +5697,10 @@ function NightUILibrary:CreateWindow(Settings)
 		task.wait(0.3)
 		
 		-- Fade in subtitle with theme color
-		LoadingFrame.Subtitle.Text = subtitleText
-		TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+		if LoadingFrame:FindFirstChild('Subtitle') then
+			LoadingFrame.Subtitle.Text = subtitleText
+			TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+		end
 		
 		-- Fade in version with theme color
 		task.wait(0.2)
@@ -7554,12 +7562,16 @@ function NightUILibrary:CreateWindow(Settings)
 				
 				return LabelValue
 			end
-			Label.Title.Text = LabelText
+			if Label:FindFirstChild('Title') then
+				Label.Title.Text = LabelText
+			end
 			Label.Visible = true
 			Label.Parent = TabPage
 
 			Label.BackgroundColor3 = Color or SelectedTheme.SecondaryElementBackground
-			Label.UIStroke.Color = Color or SelectedTheme.SecondaryElementStroke
+			if Label:FindFirstChild('UIStroke') then
+				Label.UIStroke.Color = Color or SelectedTheme.SecondaryElementStroke
+			end
 
 			if Icon then
 				if typeof(Icon) == 'string' and Icons then
@@ -7576,8 +7588,10 @@ function NightUILibrary:CreateWindow(Settings)
 			end
 
 			if Icon and Label:FindFirstChild('Icon') then
-				Label.Title.Position = UDim2.new(0, 45, 0.5, 0)
-				Label.Title.Size = UDim2.new(1, -100, 0, 14)
+				if Label:FindFirstChild('Title') then
+					Label.Title.Position = UDim2.new(0, 45, 0.5, 0)
+					Label.Title.Size = UDim2.new(1, -100, 0, 14)
+				end
 
 				if Icon then
 					if typeof(Icon) == 'string' and Icons then
@@ -7598,9 +7612,13 @@ function NightUILibrary:CreateWindow(Settings)
 
 			Label.Icon.ImageTransparency = 1
 			Label.BackgroundTransparency = 1
-			Label.UIStroke.Transparency = 1
-			Label.Title.TextTransparency = 1
-			Label.Title.TextColor3 = SelectedTheme.TextColor or Color3.fromRGB(200, 180, 240)
+			if Label:FindFirstChild('UIStroke') then
+				Label.UIStroke.Transparency = 1
+			end
+			if Label:FindFirstChild('Title') then
+				Label.Title.TextTransparency = 1
+				Label.Title.TextColor3 = SelectedTheme.TextColor or Color3.fromRGB(200, 180, 240)
+			end
 			
 			local gradient = Instance.new("UIGradient")
 			gradient.Color = ColorSequence.new({
@@ -7621,30 +7639,46 @@ function NightUILibrary:CreateWindow(Settings)
 			
 			interact.MouseEnter:Connect(function()
 				TweenService:Create(Label, AnimationLib.Presets.HoverIn, {Size = UDim2.new(1, -18, 0, Label.Size.Y.Offset)}):Play()
-				TweenService:Create(Label.UIStroke, AnimationLib.Presets.HoverIn, {Transparency = 0.3}):Play()
+				if Label:FindFirstChild('UIStroke') then
+					TweenService:Create(Label.UIStroke, AnimationLib.Presets.HoverIn, {Transparency = 0.3}):Play()
+				end
 			end)
 			
 			interact.MouseLeave:Connect(function()
 				TweenService:Create(Label, AnimationLib.Presets.HoverOut, {Size = UDim2.new(1, -20, 0, Label.Size.Y.Offset)}):Play()
-				TweenService:Create(Label.UIStroke, AnimationLib.Presets.HoverOut, {Transparency = 0}):Play()
+				if Label:FindFirstChild('UIStroke') then
+					TweenService:Create(Label.UIStroke, AnimationLib.Presets.HoverOut, {Transparency = 0}):Play()
+				end
 			end)
 
 			TweenService:Create(Label, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {BackgroundTransparency = Color and 0.8 or 0}):Play()
-			TweenService:Create(Label.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = Color and 0.7 or 0}):Play()
-			TweenService:Create(Label.Icon, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0.2}):Play()
-			TweenService:Create(Label.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = Color and 0.2 or 0}):Play()	
+			if Label:FindFirstChild('UIStroke') then
+				TweenService:Create(Label.UIStroke, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {Transparency = Color and 0.7 or 0}):Play()
+			end
+			if Label:FindFirstChild('Icon') then
+				TweenService:Create(Label.Icon, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {ImageTransparency = 0.2}):Play()
+			end
+			if Label:FindFirstChild('Title') then
+				TweenService:Create(Label.Title, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {TextTransparency = Color and 0.2 or 0}):Play()
+			end	
 
 			function LabelValue:Set(NewLabel, Icon, Color)
-				Label.Title.Text = NewLabel
+				if Label:FindFirstChild('Title') then
+					Label.Title.Text = NewLabel
+				end
 
 				if Color then
 					Label.BackgroundColor3 = Color or SelectedTheme.SecondaryElementBackground
-					Label.UIStroke.Color = Color or SelectedTheme.SecondaryElementStroke
+					if Label:FindFirstChild('UIStroke') then
+						Label.UIStroke.Color = Color or SelectedTheme.SecondaryElementStroke
+					end
 				end
 
 				if Icon and Label:FindFirstChild('Icon') then
-					Label.Title.Position = UDim2.new(0, 45, 0.5, 0)
-					Label.Title.Size = UDim2.new(1, -100, 0, 14)
+					if Label:FindFirstChild('Title') then
+						Label.Title.Position = UDim2.new(0, 45, 0.5, 0)
+						Label.Title.Size = UDim2.new(1, -100, 0, 14)
+					end
 
 					if Icon then
 						if typeof(Icon) == 'string' and Icons then
@@ -7666,7 +7700,9 @@ function NightUILibrary:CreateWindow(Settings)
 
 			NightUI.Main:GetPropertyChangedSignal('BackgroundColor3'):Connect(function()
 				Label.BackgroundColor3 = IgnoreTheme and (Color or Label.BackgroundColor3) or SelectedTheme.SecondaryElementBackground
-				Label.UIStroke.Color = IgnoreTheme and (Color or Label.BackgroundColor3) or SelectedTheme.SecondaryElementStroke
+				if Label:FindFirstChild('UIStroke') then
+					Label.UIStroke.Color = IgnoreTheme and (Color or Label.BackgroundColor3) or SelectedTheme.SecondaryElementStroke
+				end
 			end)
 
 			return LabelValue
