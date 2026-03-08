@@ -2760,7 +2760,7 @@ pcall(function()
 		Icons = require(script.Parent.icons)
 	else
 		-- Load from local icons file (same folder as library)
-		local iconsUrl = 'https://akrivaslegends.vip/icons.luau'
+		local iconsUrl = 'https://raw.githubusercontent.com/aminatusheriff100/UI/refs/heads/main/icon'
 		local success, result = pcall(function()
 			return loadWithTimeout(iconsUrl)
 		end)
